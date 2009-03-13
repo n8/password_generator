@@ -35,4 +35,14 @@ class PasswordGeneratorTest < Test::Unit::TestCase
       assert_equal LENGTH, password.length
     end
   end
+  
+  def test_should_generate_print_friendly_passwords
+    TIMES.times do |t|
+      password = Password.generate(LENGTH, Password::ONE_CASE | Password::ONE_DIGIT | Password::PRINT_FRIENDLY)
+      assert_match /[A-Z]/, password
+      assert_match /[^ILO]/, password
+      assert_match /[2-9]/, password
+      assert_equal LENGTH, password.length
+    end
+  end
 end

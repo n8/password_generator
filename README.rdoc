@@ -50,6 +50,10 @@ repackaged to make it more easily portable and easier to invoke.
 
   Password.generate(8, Password::ONE_DIGIT | Password::ONE_CASE)  # => Kzgth0il
 
+=== Passwords with both a digit and a capital letter, but all print friendly (no 0,o,O,L,l,i,I,1)
+
+  Password.generate(8, Password::ONE_DIGIT | Password::ONE_CASE | Password::PRINT_FRIENDLY)  # => Kzgth2ug
+
 == Dependencies
 
 None.
